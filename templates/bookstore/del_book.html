@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete book</title>
+    <h1> Добавление книги </h1>
+</head>
+<body>
+% for item in bks %}
+<div>
+        <h2>{{ item.book_title }}</h2>
+        <p>{{ item.book_price }}</p>
+        <p>{{ item.short_desc }}</p>
+</div>
+{% endfor %}
+    <form method="post">
+    {% csrf_token %}
+
+    <input type="submit" value=”Удалить">
+</form>
+</body>
+</html>
+
+{# form.as_p #}

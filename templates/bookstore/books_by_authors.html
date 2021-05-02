@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Авторы</title>
+
+</head>
+<body>
+<p><a href="{% url 'books_index' %}"> Главная </a></p>
+<h2>Автор: {{ current_author.name }}</h2>
+{% for item in bks %}
+<div>
+        <h2>{{ item.book_title }}</h2>
+        <p>{{ item.book_price }}</p>
+        <p>{{ item.short_desc }}</p>
+</div>
+{% endfor %}
+
+<h2>Другие авторы:</h2>
+    {% for auth in authors %}
+<div>
+        <p><a href="{% url 'by_authors' auth.pk %}"> {{ auth.name }}</a></p>
+</div>
+{% endfor %}
+</body>
+</html>

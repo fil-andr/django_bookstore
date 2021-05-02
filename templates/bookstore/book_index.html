@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book store</title>
+
+</head>
+
+<body>
+    <h1>Book store</h1>
+    <h3> Все авторы</h3>
+    <p><a href="{% url 'add_book' %}"> Добавить книгу </a></p>
+    <p><a href="{% url 'add_author' %}"> Добавить автора </a></p>
+    {% for auth in auths %}
+
+    <div>
+    <p><a href="{% url 'by_authors' auth.pk %}"> {{ auth.name }}</a></p>
+
+    {% endfor %}
+    {% for item in bks %}
+    </div>
+    <div>
+        <h2>{{ item.book_title }}</h2> <h3>({{item.authors}})</h3>
+        <p>{{ item.book_price }}</p>
+        <p>{{ item.short_desc }}</p>
+        <a href="{% url 'del_book' item.id %}"> delete </a></p>
+        <a href="{% url 'upd_book' item.pk %}"> edit </a></p>
+        <hr>
+
+    </div>
+    {% endfor %}
+</body>
+</html>
